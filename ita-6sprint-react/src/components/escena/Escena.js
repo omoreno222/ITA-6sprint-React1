@@ -1,14 +1,5 @@
 import React from "react";
 
-const Escena = () => {
-  return (
-    <div>
-      <p>
-        El nostre heroi estava surant per l'espai sideral quan a la llunyania va
-        albirar una nau espacial
-      </p>
-    </div>
-  );
-};
+const Escena = ({ text }) => <p>{text}</p>;
 
 export default Escena;
