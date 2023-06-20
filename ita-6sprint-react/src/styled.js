@@ -10,7 +10,9 @@ export const Radiado = styled.div`
   border-radius: 4rem;
   margin: 0.5rem 2rem 0.5rem 2rem;
   text-align: center;
-  background-color: ${({ active }) => (active ? "#eeb4b3" : "transparent")};
+
+  background-color: ${({ active }) =>
+    active ? "#eeb4b3" : "rgba(255,255,255,0.80)"};
 `;
 
 export const Contenedor = styled.div`

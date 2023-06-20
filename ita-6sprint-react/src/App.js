@@ -1,23 +1,31 @@
 import React from "react";
 import "./App.css";
 import Escena from "./components/escena/Escena";
+import { useState } from "react";
 import { Boton, Radiado, Contenedor, Inicio, BotonInicio } from "./styled";
 import arrayText from "./textHistoria.js";
-import { useState } from "react";
+/* el array llega bien las cuatro lineas siguientes funcionan...*/
+console.log(arrayText[0].imatge);
+console.log(arrayText[1].imatge);
+console.log(arrayText[2].imatge);
+console.log(arrayText[3].text);
+const imagen11 = "../img/img1.jpg";
 
 function App() {
   const [posicion, setPosicion] = useState(0);
   const [wellcome, setWellcome] = useState(true);
-  console.log(wellcome);
-
+  const [imatge, setImatge] = useState(arrayText[0].imatge);
+  console.log(imatge);
   const menosPosicion = () => {
     if (posicion > 0) {
       setPosicion(posicion - 1);
+      setImatge(arrayText[posicion - 1].imatge);
     }
   };
   const masPosicion = () => {
     if (posicion < arrayText.length - 1) {
       setPosicion(posicion + 1);
+      setImatge(arrayText[posicion + 1].imatge);
     }
   };
 
@@ -37,12 +45,11 @@ function App() {
   }
 
   return (
-    <div className="pral">
+    <div style={{ background: `url(${imatge})` }}>
       <Contenedor>
         <Boton onClick={menosPosicion}>Anterior</Boton>
         <Boton onClick={masPosicion}>Següent</Boton>
       </Contenedor>
-
       {arrayText.map((item, index) => (
         <Radiado active={index === posicion}>
           <Escena text={item.text} key={item.id} />
